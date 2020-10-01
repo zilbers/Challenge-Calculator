@@ -18,6 +18,7 @@
 }
 
 .calculator {
+  display: flex;
   max-width: 400px;
   margin: 0 auto;
   border: 2px solid #111;
@@ -55,4 +56,13 @@
 }
 .delete {
   background-color: rgb(46, 153, 46);
+}
+
+.digits{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.operations{
+  display: flex;
+  flex-direction: column;
 }
