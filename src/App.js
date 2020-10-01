@@ -11,6 +11,7 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
+        <Calc />
         <p>
           <code> write the functions that will make me work!</code>
           <div className='calculator'>

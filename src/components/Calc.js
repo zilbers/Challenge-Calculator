@@ -7,7 +7,7 @@ function Calc() {
 
   const [input, setInput] = useState('');
   const calcBtns = [];
-  ['(', ')', '%', 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, '.'].forEach((item) => {
+  ['(', ')', '%', 7, 8, 9, 4, 5, 6, 1, 2, 3, '.', 0].forEach((item) => {
     calcBtns.push(
       <button
         className='button number'
@@ -44,27 +44,15 @@ function Calc() {
   );
 
   return (
-    <div className='calculator-buttons'>
-      <div className='calculator'>
-        {' '}
-        <div className='show-input'>{input}</div>
+    <div className='calculator'>
+      <div className='result'>{input}</div>
+      <div className='calculator-digits calculator-buttons'>
         <div className='digits'>{calcBtns}</div>
-        <div className='modifiers subgrid'>
-          {/* clear button */}
-
-          <button
-            className='button delete'
-            onClick={() => setInput(input.substr(0, input.length - 1))}
-          >
-            Delete
-          </button>
-
+        <div className='operations'>
           {/* clear all */}
           <button className='button' onClick={() => setInput('')} value=''>
             AC
           </button>
-        </div>
-        <div className='operations button'>
           {/* add button */}
           <button
             className='button'
@@ -102,6 +90,16 @@ function Calc() {
             /
           </button>
           {/* "=" btn */}
+        </div>
+        <div className='modifiers'>
+          {/* clear button */}
+
+          <button
+            className='button delete'
+            onClick={() => setInput(input.substr(0, input.length - 1))}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>

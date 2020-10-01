@@ -4,6 +4,7 @@
 
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
 .App-header {
@@ -17,7 +18,19 @@
   color: white;
 }
 
-.calculator {
+.calculator{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.result{
+  height: 10%;
+  color: #eee;
+  font-size: calc(15px + 2vmin);
+}
+
+.calculator-digits {
   display: flex;
   max-width: 400px;
   margin: 0 auto;
