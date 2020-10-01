@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.calculator {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 2px solid #111;
+  border-radius: 5px;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 15px; */
+}
+
+.button {
+  background: rgba(0, 0, 0, 0.664); /* light background with opacity 50% */
+  border: 1px solid #111; /* black border */
+  padding: 20px;
+  color: #eee; /* white text */
+  border-radius: 5px; /* rounded corners */
+  font-size: 22px; /* larger fonts */
+  cursor: pointer; /* make it look clickable */
+}
+.button:hover {
+  background: rgb(209, 209, 209);
+}
+
+.number {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.equal {
+  background-color: rgb(255, 166, 0);
+}
+.delete {
+  background-color: rgb(46, 153, 46);
+}
