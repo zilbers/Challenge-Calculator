@@ -11,3 +11,7 @@ const root = (x) => Math.sqrt(x);
 
 const square = (x) => x*x;
 
+const swap = (x) => x*(-1);
+
+const devideSelf = (x) => 1/x;
+
