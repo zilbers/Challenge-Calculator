@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./Calc.css";
+import "./css/Calc.css";
 
 function Calc() {
   /* eslint no-eval: 0 */

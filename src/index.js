@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import Calc from "./Calc";
+import Calc from "./components/Calc";
 
 ReactDOM.render(
   <React.StrictMode>
