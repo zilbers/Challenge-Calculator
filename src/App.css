@@ -22,17 +22,24 @@
 display: flex;
 flex-direction: column;
 align-items: center;
+background-color:  #1c1e24;
+border: 2px solid #111;
 }
 
 .result{
-  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
   color: #eee;
   font-size: calc(15px + 2vmin);
+  border: 2px solid #111;
 }
 
 .calculator-digits {
   display: flex;
-  max-width: 400px;
+  align-items: center;
   margin: 0 auto;
   border: 2px solid #111;
   border-radius: 5px;
@@ -40,7 +47,7 @@ align-items: center;
 
 .calculator-buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr ;
   /* padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -48,24 +55,24 @@ align-items: center;
 }
 
 .button {
-  background: rgba(0, 0, 0, 0.664); /* light background with opacity 50% */
+  background: rgb(45, 49, 63); /* light background with opacity 50% */
   border: 1px solid #111; /* black border */
-  padding: 20px;
+  padding: 30px;
   color: #eee; /* white text */
   border-radius: 5px; /* rounded corners */
   font-size: 22px; /* larger fonts */
   cursor: pointer; /* make it look clickable */
 }
 .button:hover {
-  background: rgb(209, 209, 209);
+  background: rgba(48, 47, 47, 0.664); /* light background with opacity 50% */
 }
 
 .number {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(117, 117, 117, 0.281);
 }
 
-.equal {
-  background-color: rgb(255, 166, 0);
+.CE {
+  background-color: rgb(185, 121, 0);
 }
 .delete {
   background-color: rgb(46, 153, 46);

@@ -11,9 +11,9 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <Calc />
-        <p>
           <code> write the functions that will make me work!</code>
+        <Calc />
+        {/* <p>
           <div className='calculator'>
             <div>{value}</div>
             <div className='calculator-buttons'>
@@ -45,7 +45,7 @@ function App() {
               <button className='button equal'>=</button>
             </div>
           </div>
-        </p>
+        </p> */}
       </header>
     </div>
   );

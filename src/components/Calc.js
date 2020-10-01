@@ -25,7 +25,7 @@ function Calc() {
 
   calcBtns.push(
     <button
-      className='button equal'
+      className='button number'
       onClick={(e) => {
         try {
           setInput(
@@ -50,8 +50,8 @@ function Calc() {
         <div className='digits'>{calcBtns}</div>
         <div className='operations'>
           {/* clear all */}
-          <button className='button' onClick={() => setInput('')} value=''>
-            AC
+          <button className='button CE' onClick={() => setInput('')} value=''>
+            CE
           </button>
           {/* add button */}
           <button
@@ -91,16 +91,16 @@ function Calc() {
           </button>
           {/* "=" btn */}
         </div>
-        <div className='modifiers'>
+        {/* <div className='modifiers'> */}
           {/* clear button */}
-
+{/* 
           <button
             className='button delete'
             onClick={() => setInput(input.substr(0, input.length - 1))}
           >
             Delete
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
