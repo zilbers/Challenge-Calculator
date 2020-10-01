@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-// import "./css/Calc.css";
-
 function Calc() {
   /* eslint no-eval: 0 */
 

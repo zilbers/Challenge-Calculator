@@ -63,8 +63,13 @@ border: 2px solid #111;
   font-size: 22px; /* larger fonts */
   cursor: pointer; /* make it look clickable */
 }
+
 .button:hover {
   background: rgba(48, 47, 47, 0.664); /* light background with opacity 50% */
+}
+
+.button:focus{
+  outline: none;
 }
 
 .number {
