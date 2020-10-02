@@ -6,7 +6,7 @@ function Calc() {
   const [input, setInput] = useState('');
   const calcBtns = [];
 
-  const op = ['leftParentheses', 'rightParentheses'];
+  const op = ['leftParentheses', 'rightParentheses', 'modulo'];
   ['(', ')', '%'].forEach((item, index) => {
     calcBtns.push(
       <button
