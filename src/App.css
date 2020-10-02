@@ -65,7 +65,7 @@ border: 2px solid #111;
 }
 
 .button:hover {
-  background: rgba(48, 47, 47, 0.664); /* light background with opacity 50% */
+  background: rgba(184, 184, 184, 0.301); /* light background with opacity 50% */
 }
 
 .button:focus{
@@ -76,9 +76,14 @@ border: 2px solid #111;
   background-color: rgba(117, 117, 117, 0.281);
 }
 
-.CE {
-  background-color: rgb(185, 121, 0);
+.op {
+  background-color: rgb(45, 49, 63);
 }
+
+.op:hover {
+  background-color: rgb(64, 70, 90);
+}
+
 .delete {
   background-color: rgb(46, 153, 46);
 }
@@ -87,7 +92,20 @@ border: 2px solid #111;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
 .operations{
   display: flex;
   flex-direction: column;
+}
+
+.operations>.button:hover{
+  background-color: rgb(64, 70, 90);
+}
+
+.CE {
+  background-color: rgb(185, 121, 0);
+}
+
+#op_CE:hover {
+  background-color: rgb(224, 147, 4);
 }

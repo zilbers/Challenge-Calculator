@@ -10,7 +10,7 @@ function Calc() {
   ['(', ')', '%'].forEach((item, index) => {
     calcBtns.push(
       <button
-        className='button number'
+        className='button number op'
         id={`op_${op[index]}`}
         onClick={(e) => {
           setInput(input + e.target.value);

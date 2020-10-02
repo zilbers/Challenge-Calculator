@@ -21,6 +21,7 @@ describe(`${projectName} - test suite`, () => {
     await browser.close();
   });
 
+
   tests.forEach((test, index) => {
     it(`Can use ${test}`, async () => {
       await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
