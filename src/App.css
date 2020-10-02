@@ -3,45 +3,51 @@
 }
 
 .App {
-  text-align: center;
-  background-color: #282c34;
+display: flex;  
+flex-direction: column;
+align-items: center;
+background-color: #282c34;
+min-height: 100vh;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 5% 0;
 }
 
 .calculator{
 display: flex;
 flex-direction: column;
 align-items: center;
-background-color:  #1c1e24;
-border: 2px solid #111;
+background-color:  #1C1C1C;
+border: 2px solid #1C1C1C;
+border-radius: 3%;
 }
 
 .result{
+  font-family: 'Helvetica', 'Arial', sans-serif; 
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 60%;
   height: 100px;
   color: #eee;
-  font-size: calc(15px + 2vmin);
-  border: 2px solid #111;
+  font-size: calc(22px + 2vmin);
+  font-weight: 600;
+  border: 2px solid  #1C1C1C;
 }
 
 .calculator-digits {
   display: flex;
   align-items: center;
   margin: 0 auto;
-  border: 2px solid #111;
+  border: 2px solid  #1C1C1C;
   border-radius: 5px;
 }
 
@@ -55,13 +61,16 @@ border: 2px solid #111;
 }
 
 .button {
+  font-family: 'Helvetica', 'Arial', sans-serif; 
   background: rgb(45, 49, 63); /* light background with opacity 50% */
   border: 1px solid #111; /* black border */
-  padding: 30px;
+  padding: 23px;
   color: #eee; /* white text */
-  border-radius: 5px; /* rounded corners */
+  border-radius: 50%; /* rounded corners */
   font-size: 22px; /* larger fonts */
+  font-weight: 700;
   cursor: pointer; /* make it look clickable */
+  margin: 4px;
 }
 
 .button:hover {
@@ -77,11 +86,12 @@ border: 2px solid #111;
 }
 
 .op {
-  background-color: rgb(45, 49, 63);
+  background-color: #bbbbbb;
+  color: #1C1C1C;
 }
 
 .op:hover {
-  background-color: rgb(64, 70, 90);
+  background-color: #979797;
 }
 
 .delete {
@@ -102,10 +112,10 @@ border: 2px solid #111;
   background-color: rgb(64, 70, 90);
 }
 
-.CE {
-  background-color: rgb(185, 121, 0);
+.AC {
+  background-color: #FF9500;
 }
 
-#op_CE:hover {
-  background-color: rgb(224, 147, 4);
+#op_AC:hover {
+  background-color: rgb(245, 179, 57);
 }

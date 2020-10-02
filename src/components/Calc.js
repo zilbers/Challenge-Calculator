@@ -69,12 +69,12 @@ function Calc() {
         <div className='operations'>
           {/* clear all */}
           <button
-            className='button CE'
+            className='button AC'
             onClick={() => setInput('')}
             value=''
-            id='op_CE'
+            id='op_AC'
           >
-            CE
+            AC
           </button>
           {/* add button */}
           <button
