@@ -5,7 +5,25 @@ function Calc() {
 
   const [input, setInput] = useState('');
   const calcBtns = [];
-  ['(', ')', '%', 7, 8, 9, 4, 5, 6, 1, 2, 3, '.', 0].forEach((item) => {
+
+  const op = ['leftParentheses', 'rightParentheses'];
+  ['(', ')', '%'].forEach((item, index) => {
+    calcBtns.push(
+      <button
+        className='button number'
+        id={`op_${op[index]}`}
+        onClick={(e) => {
+          setInput(input + e.target.value);
+        }}
+        value={item}
+        key={item}
+      >
+        {' '}
+        {item}
+      </button>
+    );
+  });
+  [7, 8, 9, 4, 5, 6, 1, 2, 3, '.', 0].forEach((item) => {
     calcBtns.push(
       <button
         className='button number'
