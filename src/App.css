@@ -74,7 +74,7 @@ border-radius: 3%;
 }
 
 .button:hover {
-  background: rgba(184, 184, 184, 0.301); /* light background with opacity 50% */
+  background:  #8888884f; /* light background with opacity 50% */
 }
 
 .button:focus{
@@ -82,7 +82,7 @@ border-radius: 3%;
 }
 
 .number {
-  background-color: rgba(117, 117, 117, 0.281);
+  background-color: rgb(68, 68, 68);
 }
 
 .op {
