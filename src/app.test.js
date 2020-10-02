@@ -13,7 +13,10 @@ jest.setTimeout(30000);
 const projectName = 'Calculator Challenge';
 describe(`${projectName} - test suite`, () => {
   beforeAll(async () => {
-    browser = await puppeteer.launch({});
+    browser = await puppeteer.launch({
+        slowMo: 50,
+        headless: false
+    });
     page = await browser.newPage();
   });
 
@@ -38,19 +41,4 @@ describe(`${projectName} - test suite`, () => {
       expect(resultsValue).toBe(results[index]);
     });
   });
-
-  //   it(`Can use modulo`, async () => {
-  //     await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
-
-  //     await page.click('#digit_1');
-  //     await page.click('#digit_3');
-  //     await page.click('#digit_%');
-  //     await page.click('#digit_2');
-  //     await page.click('#equal');
-  //     const result = await page.$('.result');
-  //     const resultsValue = await (
-  //       await result.getProperty('innerText')
-  //     ).jsonValue();
-  //     expect(resultsValue).toBe(1);
-  //   });
 });
