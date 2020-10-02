@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Calc from './components/Calc'
 
 import "./App.css";
 
@@ -10,13 +11,14 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <p>
           <code> write the functions that will make me work!</code>
+        <Calc />
+        {/* <p>
           <div className='calculator'>
             <div>{value}</div>
             <div className='calculator-buttons'>
               <button className='button' onClick={clickHandler}>
-                שורש
+              √
               </button>
               <button className='button'>X^2</button>
               <button className='button'>C</button>
@@ -43,7 +45,7 @@ function App() {
               <button className='button equal'>=</button>
             </div>
           </div>
-        </p>
+        </p> */}
       </header>
     </div>
   );
