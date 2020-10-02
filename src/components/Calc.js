@@ -9,6 +9,7 @@ function Calc() {
     calcBtns.push(
       <button
         className='button number'
+        id={item}
         onClick={(e) => {
           setInput(input + e.target.value);
         }}
@@ -48,7 +49,7 @@ function Calc() {
         <div className='digits'>{calcBtns}</div>
         <div className='operations'>
           {/* clear all */}
-          <button className='button CE' onClick={() => setInput('')} value=''>
+          <button className='button CE' onClick={() => setInput('')} value='' id ="CE" >
             CE
           </button>
           {/* add button */}
@@ -56,6 +57,7 @@ function Calc() {
             className='button'
             onClick={(e) => setInput(input + e.target.value)}
             value='+'
+            id='+'
           >
             +
           </button>
@@ -65,6 +67,7 @@ function Calc() {
             className='button'
             onClick={(e) => setInput(input + e.target.value)}
             value='-'
+            id='-'
           >
             {' '}
             -{' '}
@@ -74,6 +77,7 @@ function Calc() {
             className='button'
             onClick={(e) => setInput(input + e.target.value)}
             value='*'
+            id='*'
           >
             {' '}
             *
@@ -83,6 +87,7 @@ function Calc() {
             className='button'
             onClick={(e) => setInput(input + e.target.value)}
             value='/'
+            id='/'
           >
             {' '}
             /
