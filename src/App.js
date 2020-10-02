@@ -16,7 +16,7 @@ function App() {
             <div>{value}</div>
             <div className='calculator-buttons'>
               <button className='button' onClick={clickHandler}>
-                שורש
+                shoresh 
               </button>
               <button className='button'>X^2</button>
               <button className='button'>C</button>
