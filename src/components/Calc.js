@@ -9,7 +9,7 @@ function Calc() {
     calcBtns.push(
       <button
         className='button number'
-        id={item}
+        id={`digit_${item}`}
         onClick={(e) => {
           setInput(input + e.target.value);
         }}
@@ -37,6 +37,7 @@ function Calc() {
         }
       }}
       value='='
+      id='equal'
     >
       =
     </button>
@@ -49,7 +50,12 @@ function Calc() {
         <div className='digits'>{calcBtns}</div>
         <div className='operations'>
           {/* clear all */}
-          <button className='button CE' onClick={() => setInput('')} value='' id ="CE" >
+          <button
+            className='button CE'
+            onClick={() => setInput('')}
+            value=''
+            id='op_CE'
+          >
             CE
           </button>
           {/* add button */}
@@ -57,7 +63,7 @@ function Calc() {
             className='button'
             onClick={(e) => setInput(input + e.target.value)}
             value='+'
-            id='+'
+            id='op_plus'
           >
             +
           </button>
@@ -67,7 +73,7 @@ function Calc() {
             className='button'
             onClick={(e) => setInput(input + e.target.value)}
             value='-'
-            id='-'
+            id='op_minus'
           >
             {' '}
             -{' '}
@@ -77,7 +83,7 @@ function Calc() {
             className='button'
             onClick={(e) => setInput(input + e.target.value)}
             value='*'
-            id='*'
+            id='op_multi'
           >
             {' '}
             *
@@ -87,7 +93,7 @@ function Calc() {
             className='button'
             onClick={(e) => setInput(input + e.target.value)}
             value='/'
-            id='/'
+            id='op_divide'
           >
             {' '}
             /
@@ -95,8 +101,8 @@ function Calc() {
           {/* "=" btn */}
         </div>
         {/* <div className='modifiers'> */}
-          {/* clear button */}
-{/* 
+        {/* clear button */}
+        {/* 
           <button
             className='button delete'
             onClick={() => setInput(input.substr(0, input.length - 1))}
