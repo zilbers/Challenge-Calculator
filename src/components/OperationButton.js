@@ -1,17 +1,15 @@
 import React from 'react';
 
 function OperationButton(props) {
-  const { type, value} = props;
-  
+  const { type, value, onClick } = props;
+
   return (
     <button
       className='button number op'
       id={`op_${type}`}
-      // onClick={(e) => {
-      //   action(input + e.target.value);
-      // }}
-      // value={value}
+      value={value}
       key={value}
+      onClick={onClick}
     >
       {' '}
       {value}
