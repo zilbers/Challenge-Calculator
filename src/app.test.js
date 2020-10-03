@@ -24,6 +24,26 @@ describe(`${projectName} - test suite`, () => {
     await browser.close();
   });
 
+  it(`Can change the input value by clicking some number`, async () => {
+    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+    await page.click('#digit_7');
+    const result = await page.$('.result');
+    const resultsValue = await (
+      await result.getProperty('innerText')
+    ).jsonValue();
+    expect(resultsValue).toBe('7');
+  });
+  
+  it(`Can reset the input value by clicking on the AC button`, async () => {
+    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+    await page.click('#digit_5');
+    await page.click('#op_AC');
+    const result = await page.$('.result');
+    const resultsValue = await (
+      await result.getProperty('innerText')
+    ).jsonValue();
+    expect(resultsValue).toBe('');
+  });
 
   tests.forEach((test, index) => {
     it(`Can use ${test}`, async () => {
@@ -40,5 +60,8 @@ describe(`${projectName} - test suite`, () => {
       ).jsonValue();
       expect(resultsValue).toBe(results[index]);
     });
+
   });
+
+
 });
