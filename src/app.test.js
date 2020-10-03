@@ -60,8 +60,21 @@ describe(`${projectName} - test suite`, () => {
       ).jsonValue();
       expect(resultsValue).toBe(results[index]);
     });
-
+  });
+  
+  it(`changes the input to an 'error' string if user tries to devide by 0`, async () => {
+    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+    await page.click('#digit_5');
+    await page.click('#op_divide');
+    await page.click('#digit_0');
+    await page.click('#equal');
+    const result = await page.$('.result');
+    const resultsValue = await (
+      await result.getProperty('innerText')
+    ).jsonValue();
+    expect(resultsValue).toBe('error');
   });
 
-
 });
+
+
