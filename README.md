@@ -4,8 +4,10 @@ Welcome!
 looks like our calculter broke down, please help us fix it!
 
 how to start?
-1.clone the repo to your computer 2. run <code> npm i </code> on your terminal
-3.start coding!
+
+1. clone the repo to your computer
+2. run <b> npm i </b> on your terminal
+3. start coding!
 
 # Requirements:
 
@@ -14,7 +16,7 @@ how to start?
 3. AC button that clears the result screen
 4. Working parentheses [( )]
 5. Equal button (=)
-6. The calculator should return an error when the user tries to divide by zero.
+6. The calculator should return "error" when the user tries to divide by zero.
 7. The calculator should consider order of operations: </br>
    Good way 👍🏿: </br>
    2+3*4 = 14 </br>
@@ -32,6 +34,7 @@ how to start?
 
 In order to make the tests run properly, do not change the id's of the components:
 
-Result should look something like this:
+# How to submit?
 
-//img here
+just uplaod your repoistory to our website : www.Hirlul.com/calculator-challenge
+and we will confirm that you code has fixed the calcultaor!
