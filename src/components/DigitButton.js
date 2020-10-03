@@ -8,7 +8,7 @@ function DigitButton(props) {
       className='button number'
       onClick={onClick}
       value={value}
-      id={value === '=' ? 'equal' : `digit_${value}`}
+      id={value === '=' ? 'equal' : value === '.' ? 'dot' : `digit_${value}`}
     >
       {value}
     </button>
