@@ -22,8 +22,6 @@ function Calc() {
     );
   });
 
-  
-  
   [7, 8, 9, 4, 5, 6, 1, 2, 3, '.', 0].forEach((item) => {
     calcBtns.push(
       <DigitButton
@@ -40,7 +38,9 @@ function Calc() {
       value='='
       type='equal'
       onClick={(e) => {
-        if (String(eval(input)) === 'Infinity') {
+        if (input === '') {
+          setInput('');
+        } else if (String(eval(input)) === 'Infinity') {
           setInput('error');
         } else {
           try {
