@@ -36,17 +36,20 @@ function Calc() {
     <DigitButton
       value='='
       type='equal'
-      input={input}
-      setInput={setInput}
-      onClick={() => {
-        try {
-          setInput(
-            String(eval(input)).length > 3 && String(eval(input)).includes('.')
-              ? String(eval(input).toFixed(4))
-              : String(eval(input))
-          );
-        } catch (e) {
-          console.log(e);
+      onClick={(e) => {
+        if (String(eval(input)) === 'Infinity') {
+          setInput('error');
+        } else {
+          try {
+            setInput(
+              String(eval(input)).length > 3 &&
+                String(eval(input)).includes('.')
+                ? String(eval(input).toFixed(4))
+                : String(eval(input))
+            );
+          } catch (e) {
+            console.log(e);
+          }
         }
       }}
     />
