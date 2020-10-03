@@ -43,6 +43,7 @@ describe(`${projectName} - test suite`, () => {
 
   it("can delete", async () => {
     await page.goto("http://localhost:3000/", { waitUntil: "networkidle0" });
+    await page.click("#op_AC");
     await page.click("#digit_1");
     await page.click(`#op_plus`);
     await page.click("#digit_9");
@@ -60,7 +61,6 @@ describe(`${projectName} - test suite`, () => {
 
   it("has working parentheses", async () => {
     await page.goto("http://localhost:3000/", { waitUntil: "networkidle0" });
-
     await page.click("#op_leftParentheses");
     await page.click("#digit_1");
     await page.click(`#op_plus`);
@@ -74,5 +74,20 @@ describe(`${projectName} - test suite`, () => {
       await result.getProperty("innerText")
     ).jsonValue();
     expect(resultsValue).toBe("20");
+  });
+
+  it("order of operations", async () => {
+    await page.goto("http://localhost:3000/", { waitUntil: "networkidle0" });
+    await page.click("#digit_1");
+    await page.click(`#op_plus`);
+    await page.click("#digit_9");
+    await page.click(`#op_multi`);
+    await page.click("#digit_2");
+    await page.click("#equal");
+    const result = await page.$(".result");
+    const resultsValue = await (
+      await result.getProperty("innerText")
+    ).jsonValue();
+    expect(resultsValue).toBe("19");
   });
 });
