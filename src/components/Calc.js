@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import OperationButton from './OperationButton';
+import DigitButton from './DigitButton';
+import MathOperation from './MathOperation';
 
 function Calc() {
   /* eslint no-eval: 0 */
@@ -7,58 +10,46 @@ function Calc() {
   const calcBtns = [];
 
   const op = ['leftParentheses', 'rightParentheses', 'modulo'];
-  ['(', ')', '%'].forEach((item, index) => {
+  ['(', ')', '%'].forEach((value, index) => {
     calcBtns.push(
-      <button
-        className='button number op'
-        id={`op_${op[index]}`}
-        onClick={(e) => {
-          setInput(input + e.target.value);
-        }}
-        value={item}
-        key={item}
-      >
-        {' '}
-        {item}
-      </button>
+      <OperationButton
+        value={value}
+        type={op[index]}
+        // input={input}
+        // action={setInput}
+      />
     );
   });
   [7, 8, 9, 4, 5, 6, 1, 2, 3, '.', 0].forEach((item) => {
     calcBtns.push(
-      <button
-        className='button number'
-        id={`digit_${item}`}
-        onClick={(e) => {
-          setInput(input + e.target.value);
-        }}
+      <DigitButton
         value={item}
-        key={item}
-      >
-        {' '}
-        {item}
-      </button>
+        // input={input}
+        // action={setInput}
+      />
     );
   });
 
   calcBtns.push(
-    <button
-      className='button number'
-      onClick={(e) => {
-        try {
-          setInput(
-            String(eval(input)).length > 3 && String(eval(input)).includes('.')
-              ? String(eval(input).toFixed(4))
-              : String(eval(input))
-          );
-        } catch (e) {
-          console.log(e);
-        }
-      }}
-      value='='
-      id='equal'
-    >
-      =
-    </button>
+    <DigitButton value='=' type='equal' />
+    // <button
+    //   className='button number'
+    //   onClick={(e) => {
+    //     try {
+    //       setInput(
+    //         String(eval(input)).length > 3 && String(eval(input)).includes('.')
+    //           ? String(eval(input).toFixed(4))
+    //           : String(eval(input))
+    //       );
+    //     } catch (e) {
+    //       console.log(e);
+    //     }
+    //   }}
+    //   value='='
+    //   id='equal'
+    // >
+    //   =
+    // </button>
   );
 
   return (
@@ -68,66 +59,20 @@ function Calc() {
         <div className='digits'>{calcBtns}</div>
         <div className='operations'>
           {/* clear all */}
-          <button
-            className='button AC'
-            onClick={() => setInput('')}
-            value=''
-            id='op_AC'
-          >
-            AC
-          </button>
+          <MathOperation type='AC' />
+
           {/* add button */}
-          <button
-            className='button'
-            onClick={(e) => setInput(input + e.target.value)}
-            value='+'
-            id='op_plus'
-          >
-            +
-          </button>
+          <MathOperation type='plus' value='+' />
 
           {/* minus btn */}
-          <button
-            className='button'
-            onClick={(e) => setInput(input + e.target.value)}
-            value='-'
-            id='op_minus'
-          >
-            {' '}
-            -{' '}
-          </button>
+          <MathOperation type='minus' value='-' />
 
-          <button
-            className='button'
-            onClick={(e) => setInput(input + e.target.value)}
-            value='*'
-            id='op_multi'
-          >
-            {' '}
-            *
-          </button>
+          {/* multiply btn */}
+          <MathOperation type='multi' value='*' />
 
-          <button
-            className='button'
-            onClick={(e) => setInput(input + e.target.value)}
-            value='/'
-            id='op_divide'
-          >
-            {' '}
-            /
-          </button>
-          {/* "=" btn */}
+          {/* divide btn */}
+          <MathOperation type='divide' value='/' />
         </div>
-        {/* <div className='modifiers'> */}
-        {/* clear button */}
-        {/* 
-          <button
-            className='button delete'
-            onClick={() => setInput(input.substr(0, input.length - 1))}
-          >
-            Delete
-          </button>
-        </div> */}
       </div>
     </div>
   );
