@@ -27,7 +27,7 @@ min-height: 100vh;
 .App-header code {
   background-color: rgba(24, 25, 27, 0.87);
   padding: 0.5em;
-  border-radius: 3px;
+  border-radius: 10%;
 }
 
 .calculator{
