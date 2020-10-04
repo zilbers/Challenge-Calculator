@@ -33,7 +33,7 @@ function Calc() {
   });
 
   // Digits
-  const digitBtns = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0].map((digit) => (
+  const digitBtns = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].map((digit) => (
     <DigitButton
       value={digit}
       onClick={() => {
@@ -162,118 +162,117 @@ function Calc() {
         )}
       </div>
       <div className='calculator-digits calculator-buttons'>
-        <div className='digits'>{digitBtns}</div>
-        <div className='operations'>
-          {/* clear all */}
-          <MathOperation
-            type='AC'
-            onClick={() =>
-              setState({
-                currentNumber: 0,
-                previousNumber: null,
-                currentOperation: null /* Must be one of the operations type */,
-                isFloating: false,
-                error: false,
-              })
+        {digitBtns}
+
+        {/* clear all */}
+        <MathOperation
+          type='AC'
+          onClick={() =>
+            setState({
+              currentNumber: 0,
+              previousNumber: null,
+              currentOperation: null /* Must be one of the operations type */,
+              isFloating: false,
+              error: false,
+            })
+          }
+        />
+
+        {/* add button */}
+        <MathOperation
+          type='plus'
+          onClick={() => {
+            const previousOperation = state.currentOperation;
+            let newNum = state.currentNumber;
+            if (previousOperation && state.previousNumber !== null) {
+              newNum = calculate(
+                previousOperation,
+                state.previousNumber,
+                state.currentNumber
+              );
             }
-          />
+            setState({
+              ...state,
+              currentNumber: 0,
+              currentOperation: '+',
+              previousNumber: newNum,
+              error: false,
+              isFloating: false,
+            });
+          }}
+        />
 
-          {/* add button */}
-          <MathOperation
-            type='plus'
-            onClick={() => {
-              const previousOperation = state.currentOperation;
-              let newNum = state.currentNumber;
-              if (previousOperation && state.previousNumber !== null) {
-                newNum = calculate(
-                  previousOperation,
-                  state.previousNumber,
-                  state.currentNumber
-                );
-              }
-              setState({
-                ...state,
-                currentNumber: 0,
-                currentOperation: '+',
-                previousNumber: newNum,
-                error: false,
-                isFloating: false,
-              });
-            }}
-          />
+        {/* minus btn */}
+        <MathOperation
+          type='minus'
+          onClick={() => {
+            const previousOperation = state.currentOperation;
+            let newNum = state.currentNumber;
+            if (previousOperation && state.previousNumber !== null) {
+              newNum = calculate(
+                previousOperation,
+                state.previousNumber,
+                state.currentNumber
+              );
+            }
+            setState({
+              ...state,
+              currentNumber: 0,
+              currentOperation: '-',
+              previousNumber: newNum,
+              error: false,
+              isFloating: false,
+            });
+          }}
+        />
 
-          {/* minus btn */}
-          <MathOperation
-            type='minus'
-            onClick={() => {
-              const previousOperation = state.currentOperation;
-              let newNum = state.currentNumber;
-              if (previousOperation && state.previousNumber !== null) {
-                newNum = calculate(
-                  previousOperation,
-                  state.previousNumber,
-                  state.currentNumber
-                );
-              }
-              setState({
-                ...state,
-                currentNumber: 0,
-                currentOperation: '-',
-                previousNumber: newNum,
-                error: false,
-                isFloating: false,
-              });
-            }}
-          />
+        {/* multiply btn */}
+        <MathOperation
+          type='multi'
+          onClick={() => {
+            const previousOperation = state.currentOperation;
+            let newNum = state.currentNumber;
+            if (previousOperation && state.previousNumber !== null) {
+              newNum = calculate(
+                previousOperation,
+                state.previousNumber,
+                state.currentNumber
+              );
+            }
+            setState({
+              ...state,
+              currentNumber: 0,
+              currentOperation: '*',
+              previousNumber: newNum,
+              error: false,
+              isFloating: false,
+            });
+          }}
+        />
 
-          {/* multiply btn */}
-          <MathOperation
-            type='multi'
-            onClick={() => {
-              const previousOperation = state.currentOperation;
-              let newNum = state.currentNumber;
-              if (previousOperation && state.previousNumber !== null) {
-                newNum = calculate(
-                  previousOperation,
-                  state.previousNumber,
-                  state.currentNumber
-                );
-              }
-              setState({
-                ...state,
-                currentNumber: 0,
-                currentOperation: '*',
-                previousNumber: newNum,
-                error: false,
-                isFloating: false,
-              });
-            }}
-          />
-
-          {/* divide btn */}
-          <MathOperation
-            type='divide'
-            onClick={() => {
-              const previousOperation = state.currentOperation;
-              let newNum = state.currentNumber;
-              if (previousOperation && state.previousNumber !== null) {
-                newNum = calculate(
-                  previousOperation,
-                  state.previousNumber,
-                  state.currentNumber
-                );
-              }
-              setState({
-                ...state,
-                currentNumber: 0,
-                currentOperation: '/',
-                previousNumber: newNum,
-                error: false,
-                isFloating: false,
-              });
-            }}
-          />
-        </div>
+        {/* divide btn */}
+        <MathOperation
+          type='divide'
+          onClick={() => {
+            const previousOperation = state.currentOperation;
+            let newNum = state.currentNumber;
+            if (previousOperation && state.previousNumber !== null) {
+              newNum = calculate(
+                previousOperation,
+                state.previousNumber,
+                state.currentNumber
+              );
+            }
+            setState({
+              ...state,
+              currentNumber: 0,
+              currentOperation: '/',
+              previousNumber: newNum,
+              error: false,
+              isFloating: false,
+            });
+          }}
+        />
       </div>
     </div>
   );
