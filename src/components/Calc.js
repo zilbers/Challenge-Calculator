@@ -47,9 +47,10 @@ function Calc() {
     />
   ));
 
+  // Dot
   digitBtns.push(
-    <DigitButton
-      value={'.'}
+    <MathOperation
+      type={'dot'}
       onClick={() => {
         setState({ ...state, isFloating: true });
       }}
@@ -58,8 +59,7 @@ function Calc() {
 
   // Equal
   digitBtns.push(
-    <DigitButton
-      value='='
+    <MathOperation
       type='equal'
       onClick={() => {
         const newNum = calculate(
@@ -73,6 +73,7 @@ function Calc() {
           currentNumber: newNum === Infinity ? 0 : newNum,
           currentOperation: null,
           error: newNum === Infinity ? true : false,
+          isFloating: false,
         });
       }}
     />
@@ -129,6 +130,7 @@ function Calc() {
                 currentOperation: '+',
                 previousNumber: newNum,
                 error: false,
+                isFloating: false,
               });
             }}
           />
@@ -152,6 +154,7 @@ function Calc() {
                 currentOperation: '-',
                 previousNumber: newNum,
                 error: false,
+                isFloating: false,
               });
             }}
           />
@@ -175,6 +178,7 @@ function Calc() {
                 currentOperation: '*',
                 previousNumber: newNum,
                 error: false,
+                isFloating: false,
               });
             }}
           />
@@ -198,6 +202,7 @@ function Calc() {
                 currentOperation: '/',
                 previousNumber: newNum,
                 error: false,
+                isFloating: false,
               });
             }}
           />

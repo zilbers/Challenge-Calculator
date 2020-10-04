@@ -17,6 +17,8 @@ const operations = {
   multi: { value: '*', className: 'button multi', id: 'op_multi' },
   divide: { value: '/', className: 'button divide', id: 'op_divide' },
   AC: { value: 'AC', className: 'button AC', id: 'op_AC' },
+  equal: { value: '=', className: 'button number', id: 'equal' },
+  dot: { value: '.', className: 'button number', id: 'dot' },
 };
 
 export const operationTypes = Object.keys(operations);
