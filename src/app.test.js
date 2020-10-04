@@ -114,6 +114,38 @@ describe(`${projectName} - test suite`, () => {
     expect(resultsValue).toBe('0');
   });
 
+  it(`Complicated exercise`, async () => {
+    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+    await page.click('#digit_5');
+    await page.click('#op_minus');
+    await page.click('#digit_7');
+    await page.click('#equal');
+    await page.click('#op_power');
+    await page.click('#op_power');
+    await page.click('#op_divide');
+    await page.click('#digit_2');
+    await page.click('#equal');
+    await page.click('#op_plus');
+    await page.click('#digit_1');
+    await page.click('#digit_7');
+    await page.click('#equal');
+    await page.click('#op_sqrt');
+    await page.click('#op_modulo');
+    await page.click('#digit_4');
+    await page.click('#op_multi');
+    await page.click('#digit_4');
+    await page.click('#equal');
+    await page.click('#op_multi');
+    await page.click('#digit_2');
+    await page.click('#equal');
+    const result = await page.$('.result');
+    const resultsValue = await (
+      await result.getProperty('innerText')
+    ).jsonValue();
+    expect(resultsValue).toBe('8');
+  });
+  
+
   it('Can delete', async () => {
     await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
     await page.click('#op_AC');
