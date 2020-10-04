@@ -1,15 +1,15 @@
 import React from 'react';
 
 const operations = {
-  leftParentheses: {
-    value: '(',
+  sqrt: {
+    value: '√',
     className: 'button number op',
-    id: 'op_leftParentheses',
+    id: 'op_sqrt',
   },
-  rightParentheses: {
-    value: ')',
+  power: {
+    value: 'x²',
     className: 'button number op',
-    id: 'op_rightParentheses',
+    id: 'op_power',
   },
   modulo: { value: '%', className: 'button number op', id: 'op_modulo' },
   plus: { value: '+', className: 'button plus', id: 'op_plus' },

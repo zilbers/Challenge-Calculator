@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MathOperation, operationTypes } from './MathOperation';
 import DigitButton from './DigitButton';
 
-function calculate(operation, num1, num2) {
+function calculate(operation, num1, num2 = 0) {
   switch (operation) {
     case '+':
       return num1 + num2;
@@ -14,6 +14,10 @@ function calculate(operation, num1, num2) {
       return num1 / num2;
     case '%':
       return num1 % num2;
+    case 'power':
+      return Math.pow(num1, 2);
+    case 'sqrt':
+      return Math.sqrt(num1);
   }
 }
 
@@ -46,6 +50,66 @@ function Calc() {
       }}
     />
   ));
+
+  digitBtns.unshift(
+    <MathOperation
+      type={'sqrt'}
+      onClick={() => {
+        const newNum = calculate('sqrt', state.currentNumber);
+        console.log(newNum);
+        setState({
+          ...state,
+          currentNumber: newNum,
+          currentOperation: null,
+          previousNumber: null,
+          error: false,
+          isFloating: false,
+        });
+      }}
+    />
+  );
+
+  digitBtns.unshift(
+    <MathOperation
+      type={'power'}
+      onClick={() => {
+        const newNum = calculate('power', state.currentNumber);
+        setState({
+          ...state,
+          currentNumber: newNum,
+          currentOperation: null,
+          previousNumber: null,
+          error: false,
+          isFloating: false,
+        });
+      }}
+    />
+  );
+
+  digitBtns.unshift(
+    <MathOperation
+      type={'modulo'}
+      onClick={() => {
+        const previousOperation = state.currentOperation;
+        let newNum = state.currentNumber;
+        if (previousOperation && state.previousNumber !== null) {
+          newNum = calculate(
+            previousOperation,
+            state.previousNumber,
+            state.currentNumber
+          );
+        }
+        setState({
+          ...state,
+          currentNumber: 0,
+          currentOperation: '%',
+          previousNumber: newNum,
+          error: false,
+          isFloating: false,
+        });
+      }}
+    />
+  );
 
   // Dot
   digitBtns.push(
