@@ -35,12 +35,18 @@ border-radius: 3%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 60%;
   height: 100px;
   color: #eee;
   font-size: calc(22px + 2vmin);
   font-weight: 600;
   border: 2px solid  #1C1C1C;
+}
+
+.calculations{
+  font-size: calc(10px + 2vmin);  
+  color: rgba(255, 255, 255, 0.493);
 }
 
 .calculator-digits {

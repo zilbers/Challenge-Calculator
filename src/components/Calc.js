@@ -87,7 +87,13 @@ function Calc() {
 
   return (
     <div className='calculator'>
-      <div className='result'>{state.currentNumber}{'   '}{state.previousNumber}</div>
+      <div className='result'>
+        <span className="calculations">
+        {' prev-  '}
+        {state.previousNumber + state.currentOperation}
+        </span>
+        {state.currentNumber}
+      </div>
       <div className='calculator-digits calculator-buttons'>
         <div>{operationBtns}</div>
         <div className='digits'>{digitBtns}</div>
@@ -101,20 +107,25 @@ function Calc() {
             value='+'
             onClick={() => {
               const previousOperation = state.currentOperation;
-              if (previousOperation && state.previousNumber) {
-                const newNum = calculate(
+              let newNum = state.currentNumber;
+              if (previousOperation && state.previousNumber !== null) {
+                newNum = calculate(
                   previousOperation,
                   state.previousNumber,
                   state.currentNumber
                 );
-                setState({
-                  ...state,
-                  previousNumber: newNum,
-                  currentNumber: 0,
-                });
-                console.log(newNum);
+                // setState({
+                //   ...state,
+                //   previousNumber: newNum,
+                // });
+                // console.log(newNum);
               }
-              setState({ ...state, currentNumber: 0, currentOperation: '+' });
+              setState({
+                ...state,
+                currentNumber: 0,
+                currentOperation: '+',
+                previousNumber: newNum,
+              });
             }}
           />
 
