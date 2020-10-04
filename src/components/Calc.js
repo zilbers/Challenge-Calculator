@@ -56,7 +56,6 @@ function Calc() {
       type={'sqrt'}
       onClick={() => {
         const newNum = calculate('sqrt', state.currentNumber);
-        console.log(newNum);
         setState({
           ...state,
           currentNumber: newNum,
