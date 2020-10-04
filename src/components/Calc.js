@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { MathOperation, operationTypes } from './MathOperation';
 import DigitButton from './DigitButton';
-// import MathOperation from './MathOperation11';
 
 function calculate(operation, num1, num2) {
   switch (operation) {
