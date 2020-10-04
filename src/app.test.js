@@ -2,6 +2,8 @@
  * @jest-environment node
  */
 const puppeteer = require('puppeteer');
+const { default: Calc } = require('./components/Calc');
+// import Calc from  './components/Calc'
 
 let page;
 let browser;
@@ -21,6 +23,27 @@ describe(`${projectName} - test suite`, () => {
 
   afterAll(async () => {
     await browser.close();
+  });
+
+  it(`Can change the input value by clicking some number`, async () => {
+    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+    await page.click('#digit_7');
+    const result = await page.$('.result');
+    const resultsValue = await (
+      await result.getProperty('innerText')
+    ).jsonValue();
+    expect(resultsValue).toBe('7');
+  });
+
+  it(`Can reset the input value by clicking on the AC button`, async () => {
+    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+    await page.click('#digit_5');
+    await page.click('#op_AC');
+    const result = await page.$('.result');
+    const resultsValue = await (
+      await result.getProperty('innerText')
+    ).jsonValue();
+    expect(resultsValue).toBe('0');
   });
 
   tests.forEach((test, index) => {
@@ -60,26 +83,37 @@ describe(`${projectName} - test suite`, () => {
     });
   });
 
-  it(`Can change the input value by clicking some number`, async () => {
-    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
-    await page.click('#digit_7');
-    const result = await page.$('.result');
-    const resultsValue = await (
-      await result.getProperty('innerText')
-    ).jsonValue();
-    expect(resultsValue).toBe('7');
-  });
-
-  it(`Can reset the input value by clicking on the AC button`, async () => {
+  it(`Complicated exercise`, async () => {
     await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
     await page.click('#digit_5');
-    await page.click('#op_AC');
+    await page.click('#op_minus');
+    await page.click('#digit_7');
+    await page.click('#equal');
+    await page.click('#op_power');
+    await page.click('#op_power');
+    await page.click('#op_divide');
+    await page.click('#digit_2');
+    await page.click('#equal');
+    await page.click('#op_plus');
+    await page.click('#digit_1');
+    await page.click('#digit_7');
+    await page.click('#equal');
+    await page.click('#op_sqrt');
+    await page.click('#op_modulo');
+    await page.click('#digit_4');
+    await page.click('#op_multi');
+    await page.click('#digit_4');
+    await page.click('#equal');
+    await page.click('#op_multi');
+    await page.click('#digit_2');
+    await page.click('#equal');
     const result = await page.$('.result');
     const resultsValue = await (
       await result.getProperty('innerText')
     ).jsonValue();
-    expect(resultsValue).toBe('0');
+    expect(resultsValue).toBe('8');
   });
+  
 
   it('Can delete', async () => {
     await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
@@ -99,6 +133,38 @@ describe(`${projectName} - test suite`, () => {
     expect(resultsValue).toBe('10');
   });
 
+  it('Has working parentheses', async () => {
+    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+    await page.click('#op_leftParentheses');
+    await page.click('#digit_1');
+    await page.click(`#op_plus`);
+    await page.click('#digit_9');
+    await page.click('#op_rightParentheses');
+    await page.click(`#op_multi`);
+    await page.click('#digit_2');
+    await page.click('#equal');
+    const result = await page.$('.result');
+    const resultsValue = await (
+      await result.getProperty('innerText')
+    ).jsonValue();
+    expect(resultsValue).toBe('20');
+  });
+
+  it('Order of operations', async () => {
+    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+    await page.click('#digit_1');
+    await page.click(`#op_plus`);
+    await page.click('#digit_9');
+    await page.click(`#op_multi`);
+    await page.click('#digit_2');
+    await page.click('#equal');
+    const result = await page.$('.result');
+    const resultsValue = await (
+      await result.getProperty('innerText')
+    ).jsonValue();
+    expect(resultsValue).toBe('19');
+  });
+
   it(`Changes the input to an 'Error' string if user tries to devide by 0`, async () => {
     await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
     await page.click('#digit_5');
@@ -111,28 +177,6 @@ describe(`${projectName} - test suite`, () => {
     ).jsonValue();
     expect(resultsValue).toBe('Error');
   });
-
-  it(`can square a number`, async () => {
-    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
-    await page.click('#digit_5');
-    await page.click('#op_power');
-    const result = await page.$('.result');
-    const resultsValue = await (
-      await result.getProperty('innerText')
-    ).jsonValue();
-    expect(resultsValue).toBe('25');
-  });
-
-  it(`can get the square root of a number`, async () => {
-    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
-    await page.click('#digit_4');
-    await page.click('#digit_9');
-    await page.click('#op_sqrt');
-    const result = await page.$('.result');
-    const resultsValue = await (
-      await result.getProperty('innerText')
-    ).jsonValue();
-    expect(resultsValue).toBe('7');
-  });
-
 });
+
+
