@@ -111,4 +111,28 @@ describe(`${projectName} - test suite`, () => {
     ).jsonValue();
     expect(resultsValue).toBe('Error');
   });
+
+  it(`can square a number`, async () => {
+    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+    await page.click('#digit_5');
+    await page.click('#op_power');
+    const result = await page.$('.result');
+    const resultsValue = await (
+      await result.getProperty('innerText')
+    ).jsonValue();
+    expect(resultsValue).toBe('25');
+  });
+
+  it(`can get the square root of a number`, async () => {
+    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+    await page.click('#digit_4');
+    await page.click('#digit_9');
+    await page.click('#op_sqrt');
+    const result = await page.$('.result');
+    const resultsValue = await (
+      await result.getProperty('innerText')
+    ).jsonValue();
+    expect(resultsValue).toBe('7');
+  });
+
 });
