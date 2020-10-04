@@ -8,6 +8,8 @@ let browser;
 
 const tests = ['plus', 'minus', 'multi', 'divide', 'modulo'];
 const results = ['17', '13', '30', '7.5', '1'];
+const tests_dot = ['plus', 'minus', 'multi', 'divide'];
+const results_dots = ['5.2', '2.5999999999999996', '5.07', '3'];
 
 jest.setTimeout(30000);
 const projectName = 'Calculator Challenge';
@@ -56,6 +58,26 @@ describe(`${projectName} - test suite`, () => {
         await result.getProperty('innerText')
       ).jsonValue();
       expect(resultsValue).toBe(results[index]);
+    });
+  });
+
+  tests_dot.forEach((test, index) => {
+    it(`Can use ${test} with dot`, async () => {
+      await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
+
+      await page.click('#digit_3');
+      await page.click('#dot');
+      await page.click('#digit_9');
+      await page.click(`#op_${test}`);
+      await page.click('#digit_1');
+      await page.click('#dot');
+      await page.click('#digit_3');
+      await page.click('#equal');
+      const result = await page.$('.result');
+      const resultsValue = await (
+        await result.getProperty('innerText')
+      ).jsonValue();
+      expect(resultsValue).toBe(results_dots[index]);
     });
   });
 
