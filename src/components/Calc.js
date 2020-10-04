@@ -29,15 +29,6 @@ function Calc() {
     isFloating: false,
   });
 
-  const operationBtns = operationTypes.map((name) => (
-    <MathOperation
-      type={name}
-      onClick={(e) => {
-        setInput(input + e.target.value);
-      }}
-    />
-  ));
-
   const digitBtns = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0].map((digit) => (
     <DigitButton
       value={digit}
@@ -80,6 +71,7 @@ function Calc() {
           ...state,
           previousNumber: null,
           currentNumber: newNum,
+          currentOperation: null,
         });
       }}
     />
@@ -88,23 +80,31 @@ function Calc() {
   return (
     <div className='calculator'>
       <div className='result'>
-        <span className="calculations">
-        {' prev-  '}
-        {state.previousNumber + state.currentOperation}
+        <span className='calculations'>
+          {state.previousNumber &&
+            state.previousNumber + state.currentOperation}
         </span>
         {state.currentNumber}
       </div>
       <div className='calculator-digits calculator-buttons'>
-        <div>{operationBtns}</div>
         <div className='digits'>{digitBtns}</div>
         <div className='operations'>
           {/* clear all */}
-          <MathOperation type='AC' onClick={() => setInput('')} />
+          <MathOperation
+            type='AC'
+            onClick={() =>
+              setState({
+                currentNumber: 0,
+                previousNumber: null,
+                currentOperation: null /* Must be one of the operations type */,
+                isFloating: false,
+              })
+            }
+          />
 
           {/* add button */}
           <MathOperation
             type='plus'
-            value='+'
             onClick={() => {
               const previousOperation = state.currentOperation;
               let newNum = state.currentNumber;
@@ -114,11 +114,6 @@ function Calc() {
                   state.previousNumber,
                   state.currentNumber
                 );
-                // setState({
-                //   ...state,
-                //   previousNumber: newNum,
-                // });
-                // console.log(newNum);
               }
               setState({
                 ...state,
