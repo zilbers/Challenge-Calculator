@@ -68,7 +68,7 @@ describe(`${projectName} - test suite`, () => {
       await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
 
       const num1 = Math.floor(Math.random() * 10);
-      const num2 = Math.floor(Math.random() * 10);
+      const num2 = Math.floor(Math.random() * 9) + 1;
 
       await page.click(`#digit_${num1}`);
       await page.click(`#digit_${num2}`);
@@ -92,7 +92,7 @@ describe(`${projectName} - test suite`, () => {
 
       const num1 = Math.floor(Math.random() * 10);
       const num2 = Math.floor(Math.random() * 10);
-      const num3 = Math.floor(Math.random() * 10);
+      const num3 = Math.floor(Math.random() * 9) + 1;
 
       await page.click(`#digit_${num1}`);
       await page.click('#dot');
@@ -164,7 +164,6 @@ describe(`${projectName} - test suite`, () => {
     ).jsonValue();
     expect(resultsValue).toBe('8');
   });
-  
 
   it('Can delete', async () => {
     await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
