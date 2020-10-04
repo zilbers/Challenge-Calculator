@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Digit, operationTypes } from './Digit';
+import { MathOperation, operationTypes } from './MathOperation';
 import DigitButton from './DigitButton';
-import MathOperation from './MathOperation';
+// import MathOperation from './MathOperation11';
 
 function calculate(operation, num1, num2) {
   switch (operation) {
@@ -22,12 +22,6 @@ function Calc() {
   /* eslint no-eval: 0 */
 
   const [input, setInput] = useState('');
-  // const state = {
-  //   currentNumber: 0,
-  //   previousNumber: null,
-  //   currentOperation: null, /* Must be one of the operations type */
-  //   isFloating: false
-  // };
 
   const [state, setState] = useState({
     currentNumber: 0,
@@ -36,10 +30,8 @@ function Calc() {
     isFloating: false,
   });
 
-  // setState({...state, ...newState})
-
   const operationBtns = operationTypes.map((name) => (
-    <Digit
+    <MathOperation
       type={name}
       onClick={(e) => {
         setInput(input + e.target.value);
