@@ -1,24 +1,40 @@
 # Challenge-Calculator
 
-## Requirements
--The calculator should have all the basic function working like the basic computer calculator ( + , - , * , / ).
+Welcome!
+looks like our calculter broke down, please help us fix it!
 
--The calculator should return an error when the user tries to divide by zero.
+how to start?
 
--After the user clicks on the +/- button the number should change symbol (from positive to negative and backwards).
+1. clone the repo to your computer
+2. run <b> npm i </b> on your terminal
+3. start coding!
 
--After the the user clicks on the C button the the input should be equals to 0.
+# Requirements:
 
--After the user clicks on the DELETE button all the calculating history should be deleted.
+1. Calculator must have 20 buttons.
+2. Should contain all numbers between 0-9 and a dot (.)
+3. AC button that clears the result screen
+4. Working parentheses [( )]
+5. Equal button (=)
+6. The calculator should return "error" when the user tries to divide by zero.
+7. The calculator should consider order of operations: </br>
+   Good way 👍🏿: </br>
+   2+3*4 = 14 </br>
+   Bad way 👎🏿: </br>
+   2+3*4 = 20 </br>
+8. The calculator should have the following functions: </br>
 
--After the user clicks on the X^2 button the input should be powered by 2.
+- divide / (9/2 = 4.5)
+- sum + (9+2 = 11)
+- minus - (9-2 = 7)
+- multiply * (9*2 = 18)
+- modulo % (9%2 = 1)
 
--The calculator should consider order of operations:
+# important!
 
-Good way 👍🏿:
+In order to make the tests run properly, do not change the id's of the components:
 
-2 + 3 * 4 = 14
+# How to submit?
 
-Bad way 👎🏿:
-
-2 + 3 * 4 = 20
+just uplaod your repoistory to our website : www.Hirlul.com/calculator-challenge
+and we will confirm that you code has fixed the calcultaor!
