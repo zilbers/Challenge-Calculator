@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <code> write the functions that will make me work!</code>
+        <code> Write the functions that will make me work!</code>
       </header>
       <Calc />
     </div>

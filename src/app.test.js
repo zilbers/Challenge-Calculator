@@ -39,7 +39,7 @@ describe(`${projectName} - test suite`, () => {
     const resultsValue = await (
       await result.getProperty('innerText')
     ).jsonValue();
-    expect(resultsValue).toBe('');
+    expect(resultsValue).toBe('0');
   });
 
   tests.forEach((test, index) => {
@@ -109,7 +109,7 @@ describe(`${projectName} - test suite`, () => {
     expect(resultsValue).toBe('19');
   });
 
-  it(`Changes the input to an 'error' string if user tries to devide by 0`, async () => {
+  it(`Changes the input to an 'Error' string if user tries to devide by 0`, async () => {
     await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
     await page.click('#digit_5');
     await page.click('#op_divide');
@@ -119,6 +119,6 @@ describe(`${projectName} - test suite`, () => {
     const resultsValue = await (
       await result.getProperty('innerText')
     ).jsonValue();
-    expect(resultsValue).toBe('error');
+    expect(resultsValue).toBe('Error');
   });
 });
