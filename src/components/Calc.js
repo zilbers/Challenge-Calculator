@@ -22,7 +22,6 @@ function calculate(operation, num1, num2 = 0) {
 }
 
 function Calc() {
-  /* eslint no-eval: 0 */
 
   const [state, setState] = useState({
     currentNumber: 0,
