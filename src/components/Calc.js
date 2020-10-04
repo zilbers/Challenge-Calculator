@@ -20,8 +20,6 @@ function calculate(operation, num1, num2) {
 function Calc() {
   /* eslint no-eval: 0 */
 
-  const [input, setInput] = useState('');
-
   const [state, setState] = useState({
     currentNumber: 0,
     previousNumber: null,
@@ -44,7 +42,7 @@ function Calc() {
             newNum = parseFloat(state.currentNumber.toString() + digit);
           }
         }
-        setState({ ...state, currentNumber: newNum });
+        setState({ ...state, currentNumber: newNum, error: false });
       }}
     />
   ));
@@ -72,7 +70,7 @@ function Calc() {
         setState({
           ...state,
           previousNumber: null,
-          currentNumber: newNum,
+          currentNumber: newNum === Infinity ? 0 : newNum,
           currentOperation: null,
           error: newNum === Infinity ? true : false,
         });
@@ -107,6 +105,7 @@ function Calc() {
                 previousNumber: null,
                 currentOperation: null /* Must be one of the operations type */,
                 isFloating: false,
+                error: false,
               })
             }
           />
@@ -129,6 +128,7 @@ function Calc() {
                 currentNumber: 0,
                 currentOperation: '+',
                 previousNumber: newNum,
+                error: false,
               });
             }}
           />
@@ -151,6 +151,7 @@ function Calc() {
                 currentNumber: 0,
                 currentOperation: '-',
                 previousNumber: newNum,
+                error: false,
               });
             }}
           />
@@ -173,6 +174,7 @@ function Calc() {
                 currentNumber: 0,
                 currentOperation: '*',
                 previousNumber: newNum,
+                error: false,
               });
             }}
           />
@@ -195,6 +197,7 @@ function Calc() {
                 currentNumber: 0,
                 currentOperation: '/',
                 previousNumber: newNum,
+                error: false,
               });
             }}
           />
