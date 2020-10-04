@@ -19,9 +19,9 @@ how to start?
 6. The calculator should return "error" when the user tries to divide by zero.
 7. The calculator should consider order of operations: </br>
    Good way 👍🏿: </br>
-   2+3*4 = 14 </br>
+   2+3 * 4 = 14 </br>
    Bad way 👎🏿: </br>
-   2+3*4 = 20 </br>
+   2+3 * 4 = 20 </br>
 8. The calculator should have the following functions: </br>
 
 - divide / (9/2 = 4.5)
