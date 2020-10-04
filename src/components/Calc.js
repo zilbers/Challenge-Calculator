@@ -70,30 +70,24 @@ function Calc() {
     <DigitButton
       value='='
       type='equal'
-      onClick={(e) => {
-        if (input === '') {
-          setInput('');
-        } else if (String(eval(input)) === 'Infinity') {
-          setInput('error');
-        } else {
-          try {
-            setInput(
-              String(eval(input)).length > 3 &&
-                String(eval(input)).includes('.')
-                ? String(eval(input).toFixed(4))
-                : String(eval(input))
-            );
-          } catch (e) {
-            console.log(e);
-          }
-        }
+      onClick={() => {
+        const newNum = calculate(
+          state.currentOperation,
+          state.previousNumber,
+          state.currentNumber
+        );
+        setState({
+          ...state,
+          previousNumber: null,
+          currentNumber: newNum,
+        });
       }}
     />
   );
 
   return (
     <div className='calculator'>
-      <div className='result'>{state.currentNumber}</div>
+      <div className='result'>{state.currentNumber}{'   '}{state.previousNumber}</div>
       <div className='calculator-digits calculator-buttons'>
         <div>{operationBtns}</div>
         <div className='digits'>{digitBtns}</div>
@@ -118,6 +112,7 @@ function Calc() {
                   previousNumber: newNum,
                   currentNumber: 0,
                 });
+                console.log(newNum);
               }
               setState({ ...state, currentNumber: 0, currentOperation: '+' });
             }}
