@@ -127,22 +127,67 @@ function Calc() {
           {/* minus btn */}
           <MathOperation
             type='minus'
-            value='-'
-            onClick={(e) => setInput(input + e.target.value)}
+            onClick={() => {
+              const previousOperation = state.currentOperation;
+              let newNum = state.currentNumber;
+              if (previousOperation && state.previousNumber !== null) {
+                newNum = calculate(
+                  previousOperation,
+                  state.previousNumber,
+                  state.currentNumber
+                );
+              }
+              setState({
+                ...state,
+                currentNumber: 0,
+                currentOperation: '-',
+                previousNumber: newNum,
+              });
+            }}
           />
 
           {/* multiply btn */}
           <MathOperation
             type='multi'
-            value='*'
-            onClick={(e) => setInput(input + e.target.value)}
+            onClick={() => {
+              const previousOperation = state.currentOperation;
+              let newNum = state.currentNumber;
+              if (previousOperation && state.previousNumber !== null) {
+                newNum = calculate(
+                  previousOperation,
+                  state.previousNumber,
+                  state.currentNumber
+                );
+              }
+              setState({
+                ...state,
+                currentNumber: 0,
+                currentOperation: '*',
+                previousNumber: newNum,
+              });
+            }}
           />
 
           {/* divide btn */}
           <MathOperation
             type='divide'
-            value='/'
-            onClick={(e) => setInput(input + e.target.value)}
+            onClick={() => {
+              const previousOperation = state.currentOperation;
+              let newNum = state.currentNumber;
+              if (previousOperation && state.previousNumber !== null) {
+                newNum = calculate(
+                  previousOperation,
+                  state.previousNumber,
+                  state.currentNumber
+                );
+              }
+              setState({
+                ...state,
+                currentNumber: 0,
+                currentOperation: '/',
+                previousNumber: newNum,
+              });
+            }}
           />
         </div>
       </div>

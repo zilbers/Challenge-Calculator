@@ -39,7 +39,7 @@ describe(`${projectName} - test suite`, () => {
     const resultsValue = await (
       await result.getProperty('innerText')
     ).jsonValue();
-    expect(resultsValue).toBe('');
+    expect(resultsValue).toBe('0');
   });
 
   tests.forEach((test, index) => {
