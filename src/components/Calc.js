@@ -161,7 +161,7 @@ function Calc() {
           </>
         )}
       </div>
-      <div className='calculator-digits calculator-buttons'>
+      <div className='calculator-digits'>
         {digitBtns}
 
         {/* clear all */}
