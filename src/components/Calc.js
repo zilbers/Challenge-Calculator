@@ -32,6 +32,7 @@ function Calc() {
     error: false,
   });
 
+  // Digits
   const digitBtns = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0].map((digit) => (
     <DigitButton
       value={digit}
@@ -51,6 +52,7 @@ function Calc() {
     />
   ));
 
+  // Square root
   digitBtns.unshift(
     <MathOperation
       type={'sqrt'}
@@ -68,6 +70,7 @@ function Calc() {
     />
   );
 
+  // Power
   digitBtns.unshift(
     <MathOperation
       type={'power'}
@@ -85,6 +88,7 @@ function Calc() {
     />
   );
 
+  // Modulo
   digitBtns.unshift(
     <MathOperation
       type={'modulo'}
