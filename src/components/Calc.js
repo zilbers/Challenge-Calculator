@@ -27,6 +27,7 @@ function Calc() {
     previousNumber: null,
     currentOperation: null /* Must be one of the operations type */,
     isFloating: false,
+    error: false,
   });
 
   const digitBtns = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0].map((digit) => (
@@ -57,6 +58,7 @@ function Calc() {
     />
   );
 
+  // Equal
   digitBtns.push(
     <DigitButton
       value='='
@@ -72,6 +74,7 @@ function Calc() {
           previousNumber: null,
           currentNumber: newNum,
           currentOperation: null,
+          error: newNum === Infinity ? true : false,
         });
       }}
     />
@@ -80,11 +83,17 @@ function Calc() {
   return (
     <div className='calculator'>
       <div className='result'>
-        <span className='calculations'>
-          {state.previousNumber &&
-            state.previousNumber + state.currentOperation}
-        </span>
-        {state.currentNumber}
+        {state.error ? (
+          <span>Error</span>
+        ) : (
+          <>
+            <span className='calculations'>
+              {state.previousNumber &&
+                state.previousNumber + state.currentOperation}
+            </span>
+            <span>{state.currentNumber}</span>
+          </>
+        )}
       </div>
       <div className='calculator-digits calculator-buttons'>
         <div className='digits'>{digitBtns}</div>
