@@ -7,7 +7,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 background-color: #282c34;
-background-image: url("https://media.istockphoto.com/photos/numbers-background-picture-id1155297185?b=1&k=6&m=1155297185&s=170667a&w=0&h=jT6og0F5jUhKHfQGuE9Wzwg_ecpSYnGQ43oi2eD0LhE=");
+background-image: url("./components/css/background.jpg");
 background-repeat: no-repeat;
 background-size: cover;
 min-height: 100vh;
@@ -20,12 +20,12 @@ min-height: 100vh;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
+  color: rgb(255, 255, 255);
   font-weight: 700;
   padding: 1% 0;
 }
 .App-header code {
-  background-color: rgb(161, 174, 197);
+  background-color: rgba(24, 25, 27, 0.87);
   padding: 0.5em;
   border-radius: 3px;
 }
