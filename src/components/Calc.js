@@ -53,7 +53,7 @@ function Calc() {
   ));
 
   // Square root
-  digitBtns.unshift(
+  digitBtns.push(
     <MathOperation
       type={'sqrt'}
       onClick={() => {
@@ -71,7 +71,7 @@ function Calc() {
   );
 
   // Power
-  digitBtns.unshift(
+  digitBtns.push(
     <MathOperation
       type={'power'}
       onClick={() => {
@@ -89,7 +89,7 @@ function Calc() {
   );
 
   // Modulo
-  digitBtns.unshift(
+  digitBtns.push(
     <MathOperation
       type={'modulo'}
       onClick={() => {
