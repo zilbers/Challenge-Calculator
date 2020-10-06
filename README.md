@@ -20,7 +20,7 @@ DigitButton - should get {value(0-9) , onClick(function)} as props. </br>
 1. Calculator must have 20 buttons
 2. Should contain all numbers between 0-9 and a dot (.)
 3. AC button that clears the result screen
-4. Equal button (=)
+4. Equal button (=), after pressing equal you should make sure you can use the result in the next calculation.
 5. It should also have a sqrt (√) and power (x²) buttons
 6. The calculator should return "Error" when the user tries to divide by zero
 7. The calculator should have the following functions: </br>
@@ -31,6 +31,9 @@ DigitButton - should get {value(0-9) , onClick(function)} as props. </br>
 - modulo % (9%2 = 1)
 - power x² (3² = 9)
 - sqrt √x (√16 = 4)
+8. You should be able to do (9*2 = 18 => 18 + 3 = 21 => 21 * 2 = 42)
+
+![operation](./readme-files/operations.gif?raw=true "operation")
 
 # important!
 
@@ -44,3 +47,8 @@ your result should look something like this </br>
 # How to submit?
 
 Just upload the link to your repoistory to our website, and we will check if your code has fixed our calculator!
+
+# Review
+
+Please review our challenge so we could improve it!
+https://forms.gle/kruou5hvSL6DFQma9
