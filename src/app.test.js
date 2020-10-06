@@ -185,7 +185,7 @@ describe(`${projectName} - test suite`, () => {
     expect(resultsValue).toBe('10');
   });
 
-  it(`Changes the input to an 'Error' string if user tries to devide by 0`, async () => {
+  it(`Changes the input to an 'Error' string if user tries to divide by 0`, async () => {
     await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
     await page.click('#digit_5');
     await page.click('#op_divide');
