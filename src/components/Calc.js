@@ -35,6 +35,7 @@ function Calc() {
   const digitBtns = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].map((digit) => (
     <DigitButton
       value={digit}
+      key={digit}
       onClick={() => {
         let newNum;
         if (!state.isFloating) {
@@ -55,6 +56,7 @@ function Calc() {
   digitBtns.push(
     <MathOperation
       type={'sqrt'}
+      key={'sqrt'}
       onClick={() => {
         const newNum = calculate('sqrt', state.currentNumber);
         setState({
@@ -73,6 +75,7 @@ function Calc() {
   digitBtns.push(
     <MathOperation
       type={'power'}
+      key={'power'}
       onClick={() => {
         const newNum = calculate('power', state.currentNumber);
         setState({
@@ -91,6 +94,7 @@ function Calc() {
   digitBtns.push(
     <MathOperation
       type={'modulo'}
+      key={'modulo'}
       onClick={() => {
         const previousOperation = state.currentOperation;
         let newNum = state.currentNumber;
@@ -117,6 +121,7 @@ function Calc() {
   digitBtns.push(
     <MathOperation
       type={'dot'}
+      key={'dot'}
       onClick={() => {
         setState({ ...state, isFloating: true });
       }}
@@ -127,6 +132,7 @@ function Calc() {
   digitBtns.push(
     <MathOperation
       type='equal'
+      key={'equal'}
       onClick={() => {
         const newNum = calculate(
           state.currentOperation,
