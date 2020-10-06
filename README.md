@@ -49,4 +49,9 @@ your result should look something like this </br>
 
 # How to submit?
 
-Just upload the link to your repository to our website, and we will check if your code has fixed our calculator!
+Just upload the link to your repoistory to our website, and we will check if your code has fixed our calculator!
+
+# Review
+
+Please review our challenge so we could improve it!
+https://forms.gle/kruou5hvSL6DFQma9
