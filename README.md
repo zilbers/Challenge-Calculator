@@ -42,6 +42,8 @@ DigitButton - should get {value(0-9) , onClick(function)} as props. </br>
 
 In order to make the tests run properly, do not change the id's of the components, and make sure to use the right types and values!
 
+* Its recommended to open windows calculator and check its behaviour, they should act the same.
+
 # final result
 
 your result should look something like this </br>
